@@ -16,7 +16,7 @@ jobs:
         with:
           host: ${{ vars.AWS_HOST }}
           username: ${{ vars.AWS_USER }}
-          key: ${{ secrets.AWS__KEY_PAIR }}
+          key: ${{ secrets.AWS_KEY_PAIR }}
           script: |
               mkdir ~/GHA_dir
             # cd /var/www/my-app
