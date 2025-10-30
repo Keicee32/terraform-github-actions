@@ -7,19 +7,17 @@ on:
 jobs:
   deploy_to_staging:
     runs-on: ubuntu-latest
-    steps:
-      # name: Get repo
-      # uses: actions/checkout@v4
-      
-      name: SSH into server
-      environment: Dev
-      uses: appleboy/ssh-action@master
-      with:
-        host: ${{ vars.AWS_HOST }}
-        username: ${{ vars.SSH_USERNAME }}
-        key: ${{ secrets.SSH_PRIVATE_KEY }}
-        script: |
-            mkdir ~/GHA_dir
+    environment: Dev
+    
+    steps:   
+      - name: SSH into server
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ vars.AWS_HOST }}
+          username: ${{ vars.SSH_USERNAME }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          script: |
+              mkdir ~/GHA_dir
             # cd /var/www/my-app
             # git pull origin main
             # npm install
