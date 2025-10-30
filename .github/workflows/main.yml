@@ -15,8 +15,8 @@ jobs:
         uses: appleboy/ssh-action@master
         with:
           host: ${{ vars.AWS_HOST }}
-          username: ${{ vars.SSH_USERNAME }}
-          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          username: ${{ vars.AWS_USER }}
+          key: ${{ secrets.AWS__KEY_PAIR }}
           script: |
               mkdir ~/GHA_dir
             # cd /var/www/my-app
